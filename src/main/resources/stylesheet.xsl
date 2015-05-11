@@ -3,6 +3,31 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	exclude-result-prefixes="fo">
+	
+	<!-- 
+		ATTRIBUTE SETS
+	 -->
+	
+	<xsl:attribute-set name="colors">
+		<xsl:attribute name="background-color">
+   			blue
+		</xsl:attribute>
+		<xsl:attribute name="color">
+   			red
+		</xsl:attribute>
+	</xsl:attribute-set>
+	
+	<!-- 
+		ATTRIBUTE-OVERRIDE TEMPLATE
+	 -->
+	
+	<xsl:template name="attr">
+		<xsl:for-each select="@*">
+		   <xsl:attribute name="{name()}">
+		   		<xsl:value-of select="." />
+		   </xsl:attribute>
+		</xsl:for-each>
+	</xsl:template>
 
 	<xsl:template match="root">
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -44,24 +69,5 @@
    			 </fo:block>
     	</fo:table-cell>
 	</xsl:template>
-	
-	<xsl:attribute-set name="colors">
-		<xsl:attribute name="background-color">
-   			blue
-		</xsl:attribute>
-		<xsl:attribute name="color">
-   			red
-		</xsl:attribute>
-	</xsl:attribute-set>
-	
-	<xsl:template name="attr">
-		<xsl:for-each select="@*">
-		   <xsl:attribute name="{name()}">
-		   		<xsl:value-of select="." />
-		   </xsl:attribute>
-		</xsl:for-each>
-	</xsl:template>
-	
-	
 	
 </xsl:stylesheet>
