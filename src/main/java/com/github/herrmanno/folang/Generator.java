@@ -31,7 +31,9 @@ public class Generator {
 
 	private void generate_internal(InputStream inStream, String outName) throws Exception {
 		OutputStream out = new BufferedOutputStream(new FileOutputStream(outName));
-		Source xslt = new StreamSource(ClassLoader.getSystemResourceAsStream("stylesheet.xsl"));
+		//Source xslt = new StreamSource(ClassLoader.getSystemResourceAsStream("stylesheet.xsl"));
+		//Source xslt = new StreamSource(getClass().getClassLoader().getResourceAsStream("resources/stylesheet.xsl"));
+		Source xslt = new StreamSource(Thread.currentThread().getContextClassLoader().getResourceAsStream("stylesheet.xsl"));
 		FopFactory fopFactory = FopFactory.newInstance();
 
 		try {
