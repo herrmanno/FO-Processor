@@ -43,5 +43,19 @@
   		<artifactId>fop</artifactId>
   		<version>1.0</version>
   	</dependency>
+  	<dependency>
+  		<groupId>de.neuland-bfi</groupId>
+  		<artifactId>jade4j</artifactId>
+  		<version>0.4.2</version>
+  	</dependency>
   </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>de.neuland-bfi</groupId>
+  			<artifactId>jade4j</artifactId>
+  			<version>0.4.1</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>

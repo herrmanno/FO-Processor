@@ -13,24 +13,15 @@
     	</fo:table>
 	</xsl:template>
 	
-	<xsl:template match="tr">
+	<xsl:template match="row">
     	<fo:table-row border="1pt solid black">
     		<xsl:call-template name="attr" />
     		<xsl:apply-templates />
     	</fo:table-row>
 	</xsl:template>
 	
-	<xsl:template match="th">
-    	<fo:table-cell border="1pt solid black" padding="10pt">
-	    	<xsl:call-template name="attr" />
-   			 <fo:block linefeed-treatment="preserve" text-decoration="underline" font-weight="bold">
-    			<xsl:apply-templates />
-   			 </fo:block>
-    	</fo:table-cell>
-	</xsl:template>
-	
-	<xsl:template match="td">
-    	<fo:table-cell border="1pt solid black" padding="10pt">
+	<xsl:template match="cell">
+    	<fo:table-cell border="1pt solid black" >
 	    	<xsl:call-template name="attr" />
    			 <fo:block linefeed-treatment="preserve">
     			<xsl:apply-templates />

@@ -4,7 +4,7 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	exclude-result-prefixes="fo">
 	
-	<xsl:template match="title">
+	<xsl:template match="titlepage">
    		<fo:block>
    			<xsl:call-template name="attr" />
     		<xsl:apply-templates />
@@ -35,14 +35,14 @@
     	</fo:table>
 	</xsl:template>
 	
-	<xsl:template match="footer/table/tr">
+	<xsl:template match="footer/table/row">
     	<fo:table-row>
     		<xsl:call-template name="attr" />
     		<xsl:apply-templates />
     	</fo:table-row>
 	</xsl:template>
 	
-	<xsl:template match="footer/table/row/td">
+	<xsl:template match="footer/table/row/cell">
     	<fo:table-cell >
 	    	<xsl:call-template name="attr" />
    			 <fo:block>

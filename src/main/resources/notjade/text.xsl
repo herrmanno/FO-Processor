@@ -4,23 +4,16 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	exclude-result-prefixes="fo">
 	
-	<xsl:template match="div|p">
+	<xsl:template match="block">
     	<fo:block>
     	<xsl:call-template name="attr" />
     		<xsl:apply-templates />
 		</fo:block>
 	</xsl:template>
 	
-	<xsl:template match="span">
+	<xsl:template match="text">
     	<fo:inline>
     		<xsl:call-template name="attr" />
-    		<xsl:apply-templates />
-		</fo:inline>
-	</xsl:template>
-	
-	<xsl:template match="i">
-    	<fo:inline font-style="italic">
-    	<xsl:call-template name="attr" />
     		<xsl:apply-templates />
 		</fo:inline>
 	</xsl:template>

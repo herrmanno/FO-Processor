@@ -4,14 +4,14 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	exclude-result-prefixes="fo">
 	
-	<xsl:template match="ul">
+	<xsl:template match="list">
     	<fo:list-block>
     		<xsl:call-template name="attr" />
     		<xsl:apply-templates />
 		</fo:list-block>
 	</xsl:template>
 	
-	<xsl:template match="li">
+	<xsl:template match="listitem">
 		<fo:list-item>
 			<xsl:call-template name="attr" />
 			<fo:list-item-label end-indent="label-end()">
