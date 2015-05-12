@@ -42,4 +42,15 @@ class Token {
 		
 		return p;
 	}
+
+	public void addData(String d, int ind) {
+		if(data == null) data = "";
+		if(!data.isEmpty()) data += "\n";
+		if(ind > indent) {
+			for(int i = ind-indent; i > 0; i--)
+				data += "\t";
+		}
+		data += d;
+		
+	}
 }

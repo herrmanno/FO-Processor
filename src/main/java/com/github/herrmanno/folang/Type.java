@@ -1,17 +1,28 @@
 package com.github.herrmanno.folang;
 
 enum Type {
-	$_STYLESHEET,
-	$_ROOT,
-	$_LAYOUT_MASTER_SET,
-	$_SIMPLE_PAGE_MASTER,
-	$_REGION_BODY,
-	$_PAGE_SEQUENCE,
-	
 	$ROOT("root"),
-	$table("table"),
-	$row("row"),
-	$cell("cell");
+	$$("text"),
+	$BLOCK("block"),
+	$CODE("code"),
+
+	$H1("h1"),
+	$H2("h2"),
+	$H3("h3"),
+	
+	$TABLE("table"),
+	$ROW("row"),
+	$CELL("cell"),
+	
+	$LIST("list"),
+	$ITEM("listitem"),
+	
+	$TITLEPAGE("titlepage"),
+	$HEADER("header"),
+	$FOOTER("footer"),
+	$PAGENUMBER("pagenumber"),
+	$PAGENUMBERLAST("pagenumber-last"),
+	$PBR("pagebreak");
 	
 	final String tag;
 	

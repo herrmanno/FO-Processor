@@ -31,8 +31,6 @@ public class Generator {
 
 	private void generate_internal(InputStream inStream, String outName) throws Exception {
 		OutputStream out = new BufferedOutputStream(new FileOutputStream(outName));
-		//Source xslt = new StreamSource(ClassLoader.getSystemResourceAsStream("stylesheet.xsl"));
-		//Source xslt = new StreamSource(getClass().getClassLoader().getResourceAsStream("resources/stylesheet.xsl"));
 		Source xslt = new StreamSource(Thread.currentThread().getContextClassLoader().getResourceAsStream("stylesheet.xsl"));
 		FopFactory fopFactory = FopFactory.newInstance();
 
@@ -40,7 +38,11 @@ public class Generator {
 		    Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, out);
 
 		    TransformerFactory factory = TransformerFactory.newInstance();
+		    JarfileResolver jarfileResolver = new JarfileResolver();
+		    factory.setURIResolver(jarfileResolver);
+		    
 		    Transformer transformer = factory.newTransformer(xslt);
+
 
 		    Source src = new StreamSource(inStream);
 
