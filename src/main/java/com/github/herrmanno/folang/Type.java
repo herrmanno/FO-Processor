@@ -20,6 +20,9 @@ enum Type {
 	$TITLEPAGE("titlepage"),
 	$HEADER("header"),
 	$FOOTER("footer"),
+	
+	$FOOTNOTE("footnote"),
+	
 	$PAGENUMBER("pagenumber"),
 	$PAGENUMBERLAST("pagenumber-last"),
 	$PBR("pagebreak");

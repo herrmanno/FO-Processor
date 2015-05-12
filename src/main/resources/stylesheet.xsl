@@ -54,7 +54,7 @@
 			  	</fo:page-sequence>
 			</xsl:for-each>
 	
-		 	<fo:page-sequence master-reference="A4" id="page-sequence">
+		 	<fo:page-sequence master-reference="A4" id="page-sequence" initial-page-number="1">
 		    	<fo:static-content flow-name="xsl-region-after">
 		    		<fo:block font-family="Times">
 			    		<xsl:apply-templates select="footer"/>
@@ -65,6 +65,12 @@
 			    		<xsl:apply-templates select="header"/>
 		    		</fo:block>
 		    	</fo:static-content>
+	    	 	<fo:static-content flow-name="xsl-footnote-separator">
+      				<fo:block text-align-last="justify">                        
+         				<fo:leader leader-length="50%" rule-thickness="0.5pt" leader-pattern="rule"/>               
+      				</fo:block>
+   				</fo:static-content>
+		    	
 		    	<fo:flow flow-name="xsl-region-body">
 		    		<fo:block font-family="Times">
 			    		<xsl:apply-templates select="*[not(self::footer)][not(self::header)][not(self::titlepage)]" />

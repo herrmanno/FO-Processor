@@ -20,10 +20,53 @@
 	
 	<xsl:template match="footer">
    		<fo:block>
-   			<xsl:call-template name="attr" />
-    		<xsl:apply-templates />
+	   		<xsl:call-template name="attr" />
+	   		<xsl:apply-templates />
+   		
    		</fo:block>
 	</xsl:template>
+	
+	<xsl:template match="footer/table">
+    	<fo:table>
+    		<xsl:call-template name="attr" />
+    		<fo:table-body>
+    			<xsl:apply-templates />
+    		</fo:table-body>
+    	</fo:table>
+	</xsl:template>
+	
+	<xsl:template match="footer/table/row">
+    	<fo:table-row>
+    		<xsl:call-template name="attr" />
+    		<xsl:apply-templates />
+    	</fo:table-row>
+	</xsl:template>
+	
+	<xsl:template match="footer/table/row/cell">
+    	<fo:table-cell >
+	    	<xsl:call-template name="attr" />
+   			 <fo:block>
+    			<xsl:apply-templates />
+   			 </fo:block>
+    	</fo:table-cell>
+	</xsl:template>
+	
+	<xsl:template match="footnote">
+		 <fo:footnote>
+      		<fo:inline font-size="70%" baseline-shift="super">      			
+      			<xsl:number level="any" count="footnote" format="1"/>
+    		</fo:inline>
+		      <fo:footnote-body>                                                      (3)
+		         <fo:block font-size="90%">                        
+		            <fo:inline font-size="70%" baseline-shift="super">1</fo:inline>
+		              <xsl:apply-templates />                        
+		         </fo:block>
+		      </fo:footnote-body>
+   		</fo:footnote>   
+	</xsl:template>
+	
+	
+	 
 	
 	<xsl:template match="pagenumber">
     	<fo:page-number />
